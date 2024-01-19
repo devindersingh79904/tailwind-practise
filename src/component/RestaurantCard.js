@@ -6,7 +6,6 @@ const styleCard = {
 
 const RestaurantCard = (props)=>{
     const {restData} = props;
-    console.log(restData);
     const IMG_URL="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
     const { name, cloudinaryImageId ,cuisines ,costForTwo ,avgRating , sla:{slaTime}} = restData?.info;
     return (

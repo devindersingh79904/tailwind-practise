@@ -1,13 +1,17 @@
 import { IMG_URL } from '../utils/constants';
 const RestaurantMenuItem = (props) => {
-    console.log(props); 
-    const {name,price,defaultPrice,imageId} = props.info;
+    const {title,items,showItems,setShowIndex} = props;
+    console.log(showItems);
+    console.log(items);
     return (
-        <div className="flex justify-center">
-            <div className="flex m-5">
-                <h3>{name} - Rs {price/100 || defaultPrice / 100}</h3>
-                <img className="w-24 h-16 ml-16" src={IMG_URL+imageId} alt={name} />
-            </div>
+        <div className="mx-auto grid-cols-9 bg-cyan-100 mt-2">
+            <span onClick={()=>{setShowIndex()}}>{title}</span>
+            {showItems && items && items.map(({card : {info}}) => (
+                <div className='flex justify-center' key={info.id}>
+                    <h1>{info.name}</h1>
+                </div>
+            ))
+            }
         </div>
     );
 };
